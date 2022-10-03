@@ -4,8 +4,8 @@ if (isset($_POST['submit'])) {
 
    $name = mysqli_real_escape_string($conn, $_POST['name']); //name cua name text 35
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpassword']);
+   $pass = ($_POST['password']);
+   $cpass = ($_POST['cpassword']);
 
    $select = " select * from user_form where email='$email' && password='$pass' ";
 

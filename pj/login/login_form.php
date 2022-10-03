@@ -4,7 +4,7 @@ session_start();
 if (isset($_POST['submit'])) {
 
    $name = mysqli_real_escape_string($conn, $_POST['name']); //name cua name text 35
-   $pass = md5($_POST['password']);
+   $pass = ($_POST['password']);
 
    $select = " select * from user_form where name='$name' && password='$pass' ";
 
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
          header('location: user_page.php');
       }
    } else {
-      $error[] = 'inconrrect use id or password!';
+      $error[] = 'Inconrrect use id or password!';
    }
 }
 ?>
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
    <title>Login</title>
 
    <link rel="stylesheet" href="css/style.css">
-
+   <script src="https://kit.fontawesome.com/99d6e20f38.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -50,8 +50,13 @@ if (isset($_POST['submit'])) {
             };
          };
          ?>
-         <input type="text" name="name" required placeholder="Enter your user id">
-         <input type="password" name="password" required placeholder="Enter your password">
+         <div class="lol">
+            <i class="fa-solid fa-user" style="padding: 15px 15px; margin: 8px 0;background-color: #eee;"></i>
+            <input type="text" name="name" required placeholder="Enter your user id">
+         </div>
+         <div>
+            <input type="password" name="password" required placeholder="Enter your password">
+         </div>
          <input type="submit" value="login now" class="form-btn" name="submit">
          <p>Don't have an account? <a href="register_form.php">Register now</a></p>
       </form>
